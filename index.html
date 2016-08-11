@@ -1,0 +1,257 @@
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>TourIn' &beta;</title>
+        <link rel="stylesheet" href="css/vanilla.min.css" data-jqt-theme>
+		<link rel="stylesheet" href="css/app.css">
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        <!-- Either, (1) Zepto:  Un-comment these 2 lines (order matters)  -->
+        <script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/jqt.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
+		<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+        
+        <!-- Or,     (2) jQuery: Un-comment these 3 lines (order matters)  -->
+        <!-- <script src="../../lib/jquery/jquery-1.7.min.js" type="application/x-javascript" charset="utf-8"></script> -->
+        <!-- <script src="../../src/jqt.min.js" type="text/javascript" charset="utf-8"></script> -->
+        <!-- <script src="../../src/jqtouch-jquery.min.js" type="application/x-javascript" charset="utf-8"></script> -->
+
+        <script type="text/javascript" charset="utf-8">
+            var jQT = new $.jQT({
+                icon: 'jqtouch.png',
+                icon4: 'jqtouch4.png',
+                addGlossToIcon: false,
+                startupScreen: 'jqt_startup.png',
+                statusBar: 'black-translucent',
+                preloadImages: []
+            });
+        </script>
+        <style type="text/css" media="screen">
+            #jqt.fullscreen #home .info {
+                display: none;
+            }
+            div#jqt #about {
+                padding: 100px 10px 40px;
+                text-shadow: rgba(0, 0, 0, 0.3) 0px -1px 0;
+                color: #999;
+                font-size: 13px;
+                text-align: center;
+                background: #161618;
+            }
+            div#jqt #about p {
+                margin-bottom: 8px;
+            }
+            div#jqt #about a {
+                color: #fff;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="jqt" class="">
+            <div id="home" class="current">
+                <div class="toolbar">
+                    <h1>TourIn'</h1>
+                </div>
+                <div class="scroll">
+					
+					
+					<ul class="edit" id="loginbox" style="">
+                        <li><input type="email" name="name" placeholder="Correo Electrónico" id="some_name"></li>
+						<li><input type="password" name="name" placeholder="Contraseña" id="some_name"></li>
+						<li><a href="#profile" style="text-align:center;font:bold 12pt Arial;background:#ff9900;color:#000;">Entrar</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="profile">
+                <div class="toolbar">
+                    <h1>TourIn'</h1>
+                </div>
+                <div class="scroll">
+					<div class="ti-profile-header" style="box-sizing:border-box;width:100%;margin-top:20px;">
+						<img src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/11991_10153562018259550_5250468990927329918_n.jpg?oh=c80548cec1db844b0952a98cf936d7f1&oe=57FB7DF7" style="width:100px;height:100px;float:left;margin-left:15px;margin-top:20px;">
+						<h3 style="padding-top:50px;text-align:center;">Bienvenido</h3>
+						<input type="text" placeholder="Tu nombre" value="Carlos Celma" style="background:transparent;font:bold 11pt Arial;border:none;text-align:center;width:60%;">
+						<div style="clear:both;"></div>
+					</div>
+                    <div class="ti-search" style="margin-top:50px;">
+						<ul class="individual">
+							<li><a href="#category">Buscar</a></li>
+							<li><a href="#booking">Reservar</a></li>
+						</ul>
+					</div>
+					<div class="ti-profile-data" style="margin-top:50px;">
+						<div><input type="text" value="Mexico" placeholder="¿De dónde eres?" style="background:transparent;font:bold 11pt Arial;border:none;text-align:center;width:100%;"></div>
+						<div><input type="text" value="Español,Inglés" placeholder="¿Qué idiomas hablas?" style="background:transparent;font:bold 11pt Arial;border:none;text-align:center;width:100%;"></div>
+					</div>
+					<div class="ti-profile-credit-data">
+						<a href="#paytype" class="slideup">Formas de pago</a>
+					</div>
+                </div>
+            </div>
+			<div id="booking">
+                <div class="toolbar">
+                    <h1>Reservar</h1>
+					<a class="back" href="#">Atrás</a>
+                </div>
+                <form class="scroll">
+					<ul class="edit rounded" style="">
+                        <li><input type="date" name="date_book" placeholder="Fecha" id="date_book"></li>
+						<li><input type="time" name="hour_book" placeholder="Hora" id="hour_book"></li>
+						<li class="arrow"><select id="place_book">
+								<option value="">Lugar</option>
+								<option value="1">Cholula</option>
+								<option value="2">Puebla</option>
+								<option value="3">Tlaxcala</option>
+							</select></li>
+						<li><a href="#category" style="text-align:center;font:bold 12pt Arial;background:#ff9900;color:#000;">Reservar</a></li>
+                    </ul>
+                </form>
+            </div>
+			<div id="category">
+                <div class="toolbar">
+                    <h1>TourIn'</h1>
+					<a class="back" href="#">Atrás</a>
+                </div>
+                <div class="scroll">
+					<div class="ti-category-row">
+						<div class="ti-category-col-2">
+							<a href="#" class="icon color-purple" rel="tour1"><img src="img/antique-building.svg"></a>
+							<a href="#tour1" class="info color-purple slideup">Vida en la ciudad</a>
+						</div>
+						<div class="ti-category-col-2">
+							<a href="#" class="icon color-green" rel="tour2"><img src="img/photo-camera.svg"></a>
+							<a href="#tour2" class="info color-green slideup">Postales de la ciudad</a>
+						</div>
+					</div>
+					<div class="ti-category-row">
+						<div class="ti-category-col-2">
+							<a href="#" class="icon color-gold" rel="tour3"><img src="img/shopping-cart.svg"></a>
+							<a href="#tour3" class="info color-gold slideup">Recuerdos de la ciudad</a>
+						</div>
+						<div class="ti-category-col-2">
+							<a href="#" class="icon color-blue" rel="tour4"><img src="img/entertaining-park-wheel.svg"></a>
+							<a href="#tour4" class="info color-blue slideup">Entretenimiento</a>
+						</div>
+					</div>
+                </div>
+            </div>
+			<div id="tour1">
+                <div class="toolbar">
+                    <h3>Vida en la ciudad</h3>
+                </div>
+                <div class="scroll">
+					<p>Con esta frase queremos englobar la experiencia de conocer los aspectos culturales, históricos y tradicionales de una ciudad.</p>
+					<p>Un poco de... </p>
+					<a style="margin-bottom: 120px; color: rgba(0, 0, 0, 0.901961);" href="#" class="whiteButton goback">Volver a buscar</a>
+                </div>
+            </div>
+			<div id="tour2">
+                <div class="toolbar">
+                    <h3>Postales de la ciudad</h3>
+                </div>
+                <div class="scroll">
+					<p>Con esta frase queremos englobar la experiencia de conocer los aspectos culturales, históricos y tradicionales de una ciudad.</p>
+					<p>Un poco de... </p>
+					<a style="margin-bottom: 120px; color: rgba(0, 0, 0, 0.901961);" href="#" class="whiteButton goback">Volver a buscar</a>
+                </div>
+            </div>
+			<div id="tour3">
+                <div class="toolbar">
+                    <h3>Recuerdos de la ciudad</h3>
+                </div>
+                <div class="scroll">
+					<p>Con esta frase queremos englobar la experiencia de conocer los aspectos culturales, históricos y tradicionales de una ciudad.</p>
+					<p>Un poco de... </p>
+					<a style="margin-bottom: 120px; color: rgba(0, 0, 0, 0.901961);" href="#" class="whiteButton goback">Volver a buscar</a>
+                </div>
+            </div>
+			<div id="tour4">
+                <div class="toolbar">
+                    <h3>Entretenimiento</h3>
+                </div>
+                <div class="scroll">
+					<p>Con esta frase queremos englobar la experiencia de conocer los aspectos culturales, históricos y tradicionales de una ciudad.</p>
+					<p>Un poco de... </p>
+					<a style="margin-bottom: 120px; color: rgba(0, 0, 0, 0.901961);" href="#" class="whiteButton goback">Volver a buscar</a>
+                </div>
+            </div>
+			<div id="tourinner">
+                <div class="toolbar">
+                    <h1>TourIn'</h1>
+					<a class="back" href="#">Atrás</a>
+                </div>
+                <div class="scroll">
+					<div id="tourinner-1" class="tourinner-card">
+						<div class="ti-tourinner-id-card-head">
+							<div class="pickture"><img src="http://superiorplatform.com/pictures-of/faces/happy/01-very-happy-face.jpg"></div>
+							<div class="personal-data">
+								<div class="name">Karla Mariana Suarez Galindo</div>
+								<div class="from">Mexicana, 24</div>
+							</div>
+						</div>
+						<div class="ti-tourinner-id-card-body">
+							<div class="credentials">
+								<p>Estudié Comunicación y Antropología</p>
+								<p>Hablo Inglés, Alemán y Español</p>
+							</div>
+							<div class="description">
+								Poblana de sentimiento , llevo viviendo 10 años en esta maravillosa ciudad en la que cada edificio cuenta una historia…descubre conmigo los secretos de la época colonial, sus calles más representativas y la gente que habita la zona.
+							</div>
+						</div>
+						<div class="ti-tourinner-id-card-buttons">
+							<div class="ti-tourinner-row">
+								<div class="ti-tourinner-col-2 button-in">
+									<a href="#">IN</a>
+								</div>
+								<div class="ti-tourinner-col-2 button-next">
+									<a href="#">Siguiente</a>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+			<div id="map">
+                <div class="toolbar">
+                    <h1>TourIn'</h1>
+					<a class="back" href="#">Atrás</a>
+                </div>
+                <div class="scroll">
+					
+					<div id="ti-map-map"></div>
+					<div class="ti-map-data">
+						<span></span> &nbsp; Zona segura
+					</div>
+					
+                </div>
+            </div>
+			
+			<div id="paytype">
+                <div class="toolbar">
+                    <h1>Formas de Pago</h1>
+					<a class="back" href="#">Atrás</a>
+                </div>
+                <div class="scroll">
+					
+					<div class="ti-pay-type">
+						<h3>Efectivo</h3>
+						<a href="#">Eliminar</a>
+					</div>
+					
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+      if (window.navigator.standalone) {
+        $("meta[name='apple-mobile-web-app-status-bar-style']").remove();
+      }
+    </script>
+</html>
